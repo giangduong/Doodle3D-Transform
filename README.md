@@ -10,8 +10,14 @@ As of 2021-05-26 Doodle3D Transform is distributed under the MIT License. This g
 ## Run online
 https://doodle3d.com
 
+
+
 ## Build & run locally
+
+
 ```bash
+apt-get install -y --no-install-recommends autoconf automake g++ libpng-dev make libimagequant-dev
+
 git clone git@github.com:Doodle3D/Doodle3D-Transform.git
 cd Doodle3D-Transform
 npm install    # Make sure you have installed NPM / NodeJS first
@@ -26,9 +32,9 @@ npm run start
 
 
 
+
+
+## log debug
 yarn add global pngquant-bin
- yarn add imagemin-pngquant -D
-apt-get install -y --no-install-recommends autoconf automake g++ libpng-dev make libimagequant-dev
- 
- 
- yarn add @babel/preset-env @babel/core
+yarn add imagemin-pngquant -D
+yarn add @babel/preset-env @babel/core
