@@ -25,6 +25,13 @@ npm run start
 # visit http://localhost:8080
 ```
 
+
+## build distribution
+```bash
+npm install
+npm dist
+```
+
 ## Other important repositories
 * The core features of Doodle3D Transform: https://github.com/doodle3d/Doodle3D-Core
 * The GCODE slicer of Doodle3D Transform: https://github.com/doodle3d/Doodle3D-Slicer
