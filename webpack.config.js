@@ -79,7 +79,7 @@ if (!devMode) {
     options: {
       mozjpeg: { progressive: true, quality: 65 },
       optipng: { enabled: false },
-      pngquant: { quality: '65-90', speed: 4 }
+      pngquant: { speed: 4, quality: [0.8, 1] }
     }
   };
 
@@ -166,7 +166,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /redux-undo\.umd\.m?js$/,
+        test: /(redux-undo\.umd\.m?js$|pouchdb)/,
         use: './dtt-loader.js'
       },
       {

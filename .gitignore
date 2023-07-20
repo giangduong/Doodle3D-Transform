@@ -65,7 +65,7 @@ env.sh
 server/cert
 
 # Build files
-dist/*
+#dist/*
 
 # Cache files
 .cache-loader

@@ -1,9 +1,10 @@
 FROM ubuntu:22.04
 
 RUN apt-get update && apt install -y --no-install-recommends curl  autoconf automake g++ libpng-dev make libimagequant-dev
-RUN curl -k -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-RUN nvm install 18 && nvm use 18
-RUN curl -k -o- -L https://yarnpkg.com/install.sh | bash
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
+RUN apt update && apt install yarn
 WORKDIR /app
 COPY package.json /app
 RUN cd /app  && yarn install 
