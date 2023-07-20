@@ -15,8 +15,9 @@
     "analyze": "NODE_ENV=production ANALYZE_BUNDLE=true webpack -p"
   },
   "dependencies": {
-    "@doodle3d/doodle3d-core": "github:Doodle3D/Doodle3D-Core",
-    "@doodle3d/doodle3d-slicer": "github:Doodle3D/Doodle3D-Slicer",
+    "@babel/core": "^7.22.9",
+    "@doodle3d/doodle3d-core": "https://github.com/Doodle3D/Doodle3D-Core.git",
+    "@doodle3d/doodle3d-slicer": "https://github.com/Doodle3D/Doodle3D-Slicer.git",
     "@doodle3d/redux-prompt": "^1.0.2",
     "babel-loader": "^7.1.1",
     "babel-plugin-lodash": "^3.2.11",
@@ -30,6 +31,7 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "bowser": "^1.5.0",
     "css-loader": "^0.28.7",
     "css-polyfills": "0.0.16",
@@ -42,7 +44,7 @@
     "form-data": "^2.1.1",
     "html-webpack-plugin": "^2.30.1",
     "html-webpack-template": "^6.1.0",
-    "image-webpack-loader": "^3.4.2",
+    "image-webpack-loader": "^8.1.0",
     "imports-loader": "^0.7.1",
     "json-loader": "^0.5.4",
     "jss": "^9.3.3",
@@ -87,5 +89,10 @@
     "whatwg-fetch": "^1.0.0",
     "worker-loader": "^0.8.1",
     "yml-loader": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.9",
+    "babel-core": "^6.26.3",
+    "imagemin-pngquant": "^9.0.2"
   }
 }

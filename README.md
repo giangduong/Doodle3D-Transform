@@ -22,3 +22,13 @@ npm run start
 ## Other important repositories
 * The core features of Doodle3D Transform: https://github.com/doodle3d/Doodle3D-Core
 * The GCODE slicer of Doodle3D Transform: https://github.com/doodle3d/Doodle3D-Slicer
+
+
+
+
+yarn add global pngquant-bin
+ yarn add imagemin-pngquant -D
+apt-get install -y --no-install-recommends autoconf automake g++ libpng-dev make libimagequant-dev
+ 
+ 
+ yarn add @babel/preset-env @babel/core

@@ -89,10 +89,13 @@ if (!devMode) {
 module.exports = {
   entry: {
     app: [
-      ...(devMode ? [
-        'webpack-hot-middleware/client?reload=true', // hot middleware client
-        'react-hot-loader/patch'
-      ] : []),
+      ...(devMode ?
+        // ['react-hot', 'babel?presets[]=react,presets[]=es2015,presets[]=stage-2']
+        [
+          'webpack-hot-middleware/client?reload=true', // hot middleware client
+          'react-hot-loader/patch'
+        ]
+        : []),
       './src/js/preloader.js'
     ]
   },
@@ -163,6 +166,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /redux-undo\.umd\.m?js$/,
+        use: './dtt-loader.js'
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [babelLoader]
@@ -170,7 +177,7 @@ module.exports = {
         test: /\.css$/,
         exclude: /src\/css\/.+\.css$/,
         use: ['style-loader', 'css-loader']
-        }, { // css modules
+      }, { // css modules
         test: /src\/css\/.+\.css$/,
         use: ['style-loader', cssModuleLoader]
       }, {
