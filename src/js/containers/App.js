@@ -152,8 +152,8 @@ class AppContainer extends React.Component {
     clear: PropTypes.func.isRequired,
     toMyDoodles: PropTypes.func.isRequired,
     toSave: PropTypes.func.isRequired,
-    toSettings: PropTypes.func.isRequired,
-    toDonate: PropTypes.func.isRequired,
+    // toSettings: PropTypes.func.isRequired,
+    // toDonate: PropTypes.func.isRequired,
     toSlicer: PropTypes.func.isRequired,
     toHelp: PropTypes.func.isRequired,
   };
