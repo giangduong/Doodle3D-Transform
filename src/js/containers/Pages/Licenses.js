@@ -7,6 +7,7 @@ import textMarkup from 'src/jss/textMarkup.js';
 import dependencies from 'data/licenses.json';
 import _ from 'lodash';
 import SignUpPay from 'src/js/components/SignUpPay.js';
+import { publicPath } from '../../../../settings';
 // import createDebug from 'debug';
 // const debug = createDebug('d3d:popup:licenses');
 
@@ -38,17 +39,17 @@ class Licenses extends React.Component {
           <h2>Licenses Doodle3D</h2>
           <table>
             <tbody>
-            {dependencies.map(dependency => (
-              <tr key={dependency.name}>
-                <td><a href={dependency.url}>{dependency.name}</a></td>
-                <td className={classes.publisher}>{dependency.publisher || ''}</td>
-                <td>{dependency.licenses}</td>
-              </tr>
-            ))}
+              {dependencies.map(dependency => (
+                <tr key={dependency.name}>
+                  <td><a href={dependency.url}>{dependency.name}</a></td>
+                  <td className={classes.publisher}>{dependency.publisher || ''}</td>
+                  <td>{dependency.licenses}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
           <p>
-          * License was deduced from an other file than package.json (README, LICENSE, COPYING, ...)
+            * License was deduced from an other file than package.json (README, LICENSE, COPYING, ...)
           </p>
           <p>Unique licenses found:</p>
           <ul>
@@ -61,5 +62,5 @@ class Licenses extends React.Component {
 }
 
 export default connect(null, dispatch => ({
-  onClose: () => dispatch(actions.router.push(`/`))
+  onClose: () => dispatch(actions.router.push(`${publicPath}`))
 }))(injectSheet(styles)(Licenses));

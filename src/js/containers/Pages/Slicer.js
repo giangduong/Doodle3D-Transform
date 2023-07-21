@@ -11,6 +11,7 @@ import { saveAs } from 'file-saver';
 import { generateExportMesh } from '@doodle3d/doodle3d-core/lib/utils/exportUtils.js';
 import { Matrix4 } from 'three';
 import { isEmpty } from '@doodle3d/doodle3d-core/lib/reducer';
+import { publicPath } from '../../../../settings';
 
 const styles = {
   content: {
@@ -68,5 +69,5 @@ class Slicer extends React.Component {
 export default connect(state => ({
   sketchData: isEmpty(state) ? null : state.sketcher.present
 }), dispatch => ({
-  onClose: () => dispatch(actions.router.push(`/`))
+  onClose: () => dispatch(actions.router.push(`${publicPath}`))
 }))(injectSheet(styles)(Slicer));

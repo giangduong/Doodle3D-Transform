@@ -8,6 +8,7 @@ import { blobToJSON } from '@doodle3d/doodle3d-core/lib/utils/binaryUtils.js';
 // import createDebug from 'debug';
 // const debug = createDebug('d3d:popup:addImage');
 import SignUpPay from 'src/js/components/SignUpPay.js';
+import { publicPath } from '../../../../settings';
 
 class AddImage extends React.Component {
 
@@ -51,7 +52,7 @@ class AddImage extends React.Component {
 
 export default connect(null, dispatch => ({
   addImage: () => dispatch(actions.sketcher.addImage),
-  onClose: () => dispatch(actions.router.push(`/`)),
+  onClose: () => dispatch(actions.router.push(`${publicPath}`)),
   onOpen: async (doc) => {
     const { _attachments } = doc;
 

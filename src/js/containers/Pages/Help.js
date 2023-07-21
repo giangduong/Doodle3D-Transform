@@ -5,6 +5,7 @@ import textMarkup from 'src/jss/textMarkup.js';
 import SignUpPay from 'src/js/components/SignUpPay.js';
 import { connect } from 'react-redux';
 import * as actions from 'src/js/actions/index.js';
+import { publicPath } from '../../../../settings';
 
 const VIDEO_SRC = 'https://www.youtube.com/embed/rkZNNzSJBps?modestbranding=1';
 
@@ -34,5 +35,5 @@ Help.propTypes = {
 };
 
 export default connect(null, dispatch => ({
-  onClose: () => dispatch(actions.router.push(`/`))
+  onClose: () => dispatch(actions.router.push(`${publicPath}`))
 }))(injectSheet(styles)(Help));

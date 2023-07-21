@@ -10,6 +10,7 @@ import changelog from 'CHANGELOG.md';
 // import createDebug from 'debug';
 // const debug = createDebug('d3d:popup:ReleaseNotes');
 import SignUpPay from 'src/js/components/SignUpPay.js';
+import { publicPath } from '../../../../settings';
 
 const styles = {
   ...textMarkup,
@@ -41,5 +42,5 @@ class ReleaseNotes extends React.Component {
 }
 
 export default connect(null, dispatch => ({
-  onClose: () => dispatch(actions.router.push(`/`))
+  onClose: () => dispatch(actions.router.push(`${publicPath}`))
 }))(injectSheet(styles)(ReleaseNotes));

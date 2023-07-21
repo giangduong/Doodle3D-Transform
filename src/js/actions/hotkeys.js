@@ -1,6 +1,7 @@
 import * as actions from './index.js';
 import bowser from 'bowser';
 import keycode from 'keycode';
+import { publicPath } from '../../../settings.js';
 // import createDebug from 'debug';
 // const debug = createDebug('d3d:actions:hotkeys');
 
@@ -21,14 +22,14 @@ export const keyPress = (event, pathname) => {
         case 's':
           if (commandKey) {
             event.preventDefault(); // pevent default browser saving behaviour
-            dispatch(actions.router.push('/save'));
+            dispatch(actions.router.push(`${publicPath}/save`));
           }
           break;
 
         case 'o':
           if (commandKey) {
             event.preventDefault(); // pevent default browser opening behaviour
-            dispatch(actions.router.push('/my-doodles'));
+            dispatch(actions.router.push(`${publicPath}/my-doodles`));
           }
           break;
 
