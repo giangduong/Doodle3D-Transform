@@ -228,9 +228,9 @@ class AppContainer extends React.Component {
           <div className={classes.new} onClick={clear} />
           <div className={classes.open} onClick={toMyDoodles} />
           <div className={classes.save} onClick={toSave} />
-          <div className={classes.settings} onClick={_toSettings} />
+          {/* <div className={classes.settings} onClick={_toSettings} /> */}
           <div className={classes.help} onClick={_toHelp} />
-          <div className={classes.love} onClick={_toDonate} />
+          {/* <div className={classes.love} onClick={_toDonate} /> */}
         </div>
         <div className={classes.export} onClick={this.openPopover} />
         <Popover
@@ -238,7 +238,7 @@ class AppContainer extends React.Component {
           anchorEl={this.state.popover.element}
           targetOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-          style={{ marginTop:"50px" }}
+          style={{ marginTop: "50px" }}
           onRequestClose={this.closePopover}
         >
           <Menu>
@@ -266,13 +266,13 @@ class AppContainer extends React.Component {
           anchorEl={this.state.popoverAbout.element}
           targetOrigin={{ horizontal: 'left', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-          style={{marginTop: "50px", marginLeft: "-20px", minWidth: "140px", }}
+          style={{ marginTop: "50px", marginLeft: "-20px", minWidth: "140px", }}
           onRequestClose={this.closePopoverAbout}
         >
           <Menu>
-            <MenuItem primaryText="Donate" onClick={_toDonate}/>
-            <MenuItem primaryText="Help"  onClick={_toHelp}/>
-            <MenuItem primaryText="About" onClick={_toSettings}/>
+            {/* <MenuItem primaryText="Donate" onClick={_toDonate} /> */}
+            <MenuItem primaryText="Help" onClick={_toHelp} />
+            {/* <MenuItem primaryText="About" onClick={_toSettings} /> */}
           </Menu>
         </Popover>
         {children}
@@ -280,14 +280,15 @@ class AppContainer extends React.Component {
     );
   }
 }
+var { publicPath } = require("../../../settings")
 
-export default connect(state => ({ }), {
-  toMyDoodles: () => actions.router.push('/my-doodles'),
-  toSave: () => actions.router.push('/save'),
-  toDonate: () => actions.router.push('/donate'),
-  toHelp: () => actions.router.push('/help'),
-  toSettings: () => actions.router.push('/settings'),
-  toSlicer: () => actions.router.push('/slicer'),
+export default connect(state => ({}), {
+  toMyDoodles: () => actions.router.push(`${publicPath}/my-doodles`),
+  toSave: () => actions.router.push(`${publicPath}/save`),
+  // toDonate: () => actions.router.push('/donate'),
+  toHelp: () => actions.router.push(`${publicPath}/help`),
+  // toSettings: () => actions.router.push('/settings'),
+  toSlicer: () => actions.router.push(`${publicPath}/slicer`),
   clear: actions.sketcher.clear,
   downloadStl: actions.downloadStl,
   downloadObj: actions.downloadObj,

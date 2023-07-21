@@ -15,6 +15,7 @@ import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import Pagination from 'material-ui-pagination';
+import { publicPath } from '../../../../settings.js';
 
 const orders = [
   { id: 'DATE', text: 'Date New-Old', type: 'updatedOn', desc: true },
@@ -119,60 +120,60 @@ class MyDoodles extends React.Component {
         <div className={classes.content}>
           <h2>My Doodles</h2>
           {gallery.ready ? <div>
-          <Popover
-            open={orderSelect.open}
-            anchorEl={orderSelect.element}
-            onRequestClose={this.closeOrderSelect}
-          >
-            <Menu>
-              {orders.map(({ id, text }) => <MenuItem
-                key={id}
-                onClick={() => this.changeOrder(id)}
-                primaryText={text}
-              />)}
-            </Menu>
-          </Popover>
-          {gallery.data.rows.length === 0 ?
-            <div>
-              <RaisedButton
-                label="Import Doodles"
-                onClick={_openFileSelector}
-                style={{ margin: '10px 0', }}
-              />
-              <p>No Doodles Found</p>
-            </div> : <div>
-              <RaisedButton
-                label="Change Order"
-                onClick={this.openOrderSelect}
-                style={{ margin: '10px 0' }}
-              />
-              <RaisedButton
-                label="Import Doodles"
-                onClick={_openFileSelector}
-                style={{ margin: '10px 5px', }}
-              />
-              <RaisedButton
-                label="Backup as ZIP"
-                onClick={downloadAllSketches}
-                style={{ margin: '10px 0' }}
-              />
-              <div className={classes.grid}>
-                {gallery.data.rows.map(({ doc }) => <Thumb
-                  key={doc._id}
-                  onOpen={onOpen}
-                  onDeleted={this.updatePage}
-                  doc={doc}
+            <Popover
+              open={orderSelect.open}
+              anchorEl={orderSelect.element}
+              onRequestClose={this.closeOrderSelect}
+            >
+              <Menu>
+                {orders.map(({ id, text }) => <MenuItem
+                  key={id}
+                  onClick={() => this.changeOrder(id)}
+                  primaryText={text}
                 />)}
-            </div>
-            <Pagination
-              styleRoot={{ display: 'flex', justifyContent: 'center', margin: '10px 0' }}
-              total={Math.ceil(gallery.data.total_rows / numItems)}
-              current={page + 1}
-              display={10}
-              onChange={changePage}
-            />
-          </div>}
-        </div> : <CircularProgress style={{ margin: '0 auto', display: 'block' }} />}
+              </Menu>
+            </Popover>
+            {gallery.data.rows.length === 0 ?
+              <div>
+                <RaisedButton
+                  label="Import Doodles"
+                  onClick={_openFileSelector}
+                  style={{ margin: '10px 0', }}
+                />
+                <p>No Doodles Found</p>
+              </div> : <div>
+                <RaisedButton
+                  label="Change Order"
+                  onClick={this.openOrderSelect}
+                  style={{ margin: '10px 0' }}
+                />
+                <RaisedButton
+                  label="Import Doodles"
+                  onClick={_openFileSelector}
+                  style={{ margin: '10px 5px', }}
+                />
+                <RaisedButton
+                  label="Backup as ZIP"
+                  onClick={downloadAllSketches}
+                  style={{ margin: '10px 0' }}
+                />
+                <div className={classes.grid}>
+                  {gallery.data.rows.map(({ doc }) => <Thumb
+                    key={doc._id}
+                    onOpen={onOpen}
+                    onDeleted={this.updatePage}
+                    doc={doc}
+                  />)}
+                </div>
+                <Pagination
+                  styleRoot={{ display: 'flex', justifyContent: 'center', margin: '10px 0' }}
+                  total={Math.ceil(gallery.data.total_rows / numItems)}
+                  current={page + 1}
+                  display={10}
+                  onChange={changePage}
+                />
+              </div>}
+          </div> : <CircularProgress style={{ margin: '0 auto', display: 'block' }} />}
         </div>
       </SignUpPay>
     );
@@ -185,7 +186,7 @@ export default connect(state => ({
   openFileSelector: () => dispatch(actions.files.openFileSelector()),
   downloadAllSketches: () => dispatch(actions.files.downloadAllSketches()),
   loadGallery: (page, numItems, type, desc) => dispatch(actions.files.loadGallery(page, numItems, type, desc)),
-  onClose: () => dispatch(actions.router.push(`/`)),
+  onClose: () => dispatch(actions.router.push(publicPath)),
   onOpen: async (doc) => {
     const { _id, name, _attachments } = doc;
     dispatch(actions.sketcher.clear());

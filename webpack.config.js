@@ -7,7 +7,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const devMode = process.env.NODE_ENV !== 'production';
 const analyzeBundle = process.env.ANALYZE_BUNDLE;
 // console.log(`Starting Webpack (devmode: ${devMode})`);
-
+const { publicPath } = require("./settings");
 let devtool;
 if (devMode) {
   devtool = 'eval-source-map';
@@ -56,7 +56,8 @@ const cssModuleLoader = {
   loader: 'css-loader',
   query: {
     modules: true,
-    localIdentName: '[name]__[local]___[hash:base64:5]'
+    localIdentName: '[name]__[local]___[hash:base64:5]',
+
   }
 };
 
@@ -150,8 +151,8 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].chunk.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    path: path.resolve(__dirname, `dist/${publicPath}/`),
+    publicPath: publicPath + "/"
   },
   resolve: {
     alias: {

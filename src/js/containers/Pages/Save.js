@@ -12,6 +12,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { AUTO_FOCUS_TEXT_FIELDS } from 'src/js/constants/general.js';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import { publicPath } from '../../../../settings';
 
 // import createDebug from 'debug';
 // const debug = createDebug('d3d:popup:save');
@@ -50,14 +51,14 @@ class Save extends React.Component {
         actions={[
           <FlatButton label="Close" onClick={onClose} />,
           <FlatButton label="Download file" onClick={() => downloadCurrentSketch(fileName)} />,
-          <RaisedButton label="Save in browser" onClick={handleSubmit} primary disabled={ submitting || invalid } />
+          <RaisedButton label="Save in browser" onClick={handleSubmit} primary disabled={submitting || invalid} />
         ]}
         onRequestClose={onClose}
       >
         <div>
           <h2>Save</h2>
           <p>Your doodle will be saved in the <u>local storage of your web browser</u>.
-          Make sure to make a <a>backup (see export menu)</a> of your doodles every once in a while.</p>
+            Make sure to make a <a>backup (see export menu)</a> of your doodles every once in a while.</p>
           {error && <p className={classes.error}>error</p>}
           <form onSubmit={handleSubmit}>
             <Field
@@ -85,7 +86,7 @@ export default connect(state => ({
   downloadCurrentSketch: (fileName) => dispatch(actions.files.downloadCurrentSketch(fileName)),
   submit: () => dispatch(startSubmit(formName)),
   save: (fileName) => dispatch(actions.files.saveFile(fileName)),
-  onClose: () => dispatch(actions.router.push('/'))
+  onClose: () => dispatch(actions.router.push(publicPath))
 }))(reduxForm({
   form: formName,
   onSubmit
