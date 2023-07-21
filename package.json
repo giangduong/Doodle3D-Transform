@@ -5,13 +5,15 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "test": "http-server ./dist",
     "postinstall": "npm run dist:prepare",
+    "copy-logo": "cp ./pythaverse-3d.png ./dist/doodle/node_modules/@doodle3d/doodle3d-core/img/doodle3d-sign.png",
     "start": "webpack-dev-server -w",
     "start-production": "NODE_ENV=production npm start",
     "lint": "eslint src/js",
     "dist:prepare": "npm run dist:licenses && mkdir -p dist && rimraf dist/*",
     "dist:licenses": "mkdir -p data && node licenses-to-json.js . > data/licenses.json",
-    "dist": "npm run dist:prepare && NODE_ENV=production webpack -p",
+    "dist": "npm run dist:prepare && NODE_ENV=production webpack -p && yarn copy-logo",
     "analyze": "NODE_ENV=production ANALYZE_BUNDLE=true webpack -p"
   },
   "dependencies": {
@@ -55,6 +57,7 @@
     "material-ui": "^0.19.0",
     "material-ui-pagination": "^1.1.6",
     "normalize-jss": "^4.0.0",
+    "npm-run-all": "^4.1.5",
     "postinstall": "^0.7.0",
     "pouchdb": "^7.2.2",
     "pouchdb-seed-design": "^0.3.0",

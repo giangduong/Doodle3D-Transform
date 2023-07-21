@@ -8,6 +8,7 @@ RUN curl --compressed -o- -L https://yarnpkg.com/install.sh | bash -
 #RUN apt update && apt install yarn
 WORKDIR /app
 COPY package.json /app
-RUN cd /app  && $HOME/.yarn/bin/yarn install --force
+# RUN cd /app  && $HOME/.yarn/bin/yarn install --non-interactive --force
 COPY . /app
-RUN $HOME/.yarn/bin/yarn dist 
+# RUN $HOME/.yarn/bin/yarn dist 
+CMD ["http-server /dist"]
