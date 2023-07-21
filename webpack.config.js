@@ -111,7 +111,7 @@ module.exports = {
       new HTMLWebpackPlugin({
         template: require('html-webpack-template'),
         filename: 'index.html',
-        title: 'Doodle3D Transform',
+        title: 'Pythaverse 3D',
         appMountId: 'app',
         inject: false,
         mobile: true,
@@ -121,16 +121,19 @@ module.exports = {
         chunks: ['app'],
         meta: [
           { 'http-equiv': 'Content-Type', content: 'text/html; charset=utf-8' },
-          { property: 'og:image', content: 'https://doodle3d.com/img/screenshot.png' },
-          { property: 'og:type', content: 'website' },
-          { property: 'og:url', content: 'https://doodle3d.com' },
+          // { property: 'og:image', content: 'https://doodle3d.com/img/screenshot.png' },
+          // { property: 'og:type', content: 'website' },
+          // { property: 'og:url', content: 'https://doodle3d.com' },
           { name: 'apple-mobile-web-app-capable', content: 'yes' },
           { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
           { name: 'mobile-web-app-capable', content: 'yes' },
           { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui, user-scalable=no' }
         ],
-        headHtmlSnippet: '<link rel="shortcut icon" href="img/apple-touch-icon-144x144-precomposed.png" type="image/x-icon" />\
-          <link rel="apple-touch-icon" href="img/apple-touch-icon-144x144-precomposed.png">',
+        headHtmlSnippet: `<link rel="shortcut icon" href="img/apple-touch-icon-144x144-precomposed.png" type="image/x-icon" />\
+          <link rel="apple-touch-icon" href="img/apple-touch-icon-144x144-precomposed.png">
+          
+          `,
+
       }),
       new HTMLWebpackPlugin({
         template: require('html-webpack-template'),
