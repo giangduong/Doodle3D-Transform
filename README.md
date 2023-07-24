@@ -39,6 +39,7 @@ cd Doodle3D-Transform
 sudo docker build -t dtt .
 sudo docker run -d -p 8080:8080 dtt
 ```
+# visit  http://localhost:8080/doodle
 
 ## Other important repositories
 * The core features of Doodle3D Transform: https://github.com/doodle3d/Doodle3D-Core
