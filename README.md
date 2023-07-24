@@ -32,6 +32,14 @@ npm install
 npm dist
 ```
 
+build & run docker images
+```bash
+git clone git@github.com:Doodle3D/Doodle3D-Transform.git
+cd Doodle3D-Transform
+sudo docker build -t dtt .
+sudo docker run -d -p 8080:8080 dtt
+```
+
 ## Other important repositories
 * The core features of Doodle3D Transform: https://github.com/doodle3d/Doodle3D-Core
 * The GCODE slicer of Doodle3D Transform: https://github.com/doodle3d/Doodle3D-Slicer
